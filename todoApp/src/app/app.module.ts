@@ -1,15 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { NgModule } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,14 +25,22 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule,
+    AppRoutingModule,
+    AppRoutingModule,
+    MatButtonModule,
     MatCheckboxModule,
+    MatInputModule,
+    MatCardModule,
     MatIconModule,
-    MatButtonModule
+    MatSnackBarModule,
+    DragDropModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: 'apiUrl', useValue: 'https://api.limantech.com/todo' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
